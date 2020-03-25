@@ -8,13 +8,13 @@ service TodoList {
     rpc UpdateTodoStatus (UpdateTodoStatusRequest) returns (UpdateTodoStatusResponse);
 }
 
-message ListTodosRequest {
-
-}
 message Todo {
     int32 id = 1;
     string title = 2;
     bool status = 3;
+}
+
+message ListTodosRequest {
 }
 
 message ListTodosResponse {
