@@ -34,6 +34,8 @@ def list_todos():
         print("*" * 10)
         print("Title : {}".format(todo.title))
         print("Status : {}".format(todo.status))
+        print("Created_at : {}".format(todo.created_at))
+        print("Last Updated at : {}".format(todo.last_updated_at))
         print("*" * 10)
         print('\n'*2)
 
