@@ -4,8 +4,9 @@ from models import Todo
 import sqlalchemy
 from sqlalchemy.orm import mapper
 from sqlalchemy.inspection import inspect
-import datetime
+from datetime import datetime
 from contextlib import contextmanager
+from google.protobuf.timestamp_pb2 import Timestamp
 
 
 @contextmanager
@@ -17,8 +18,9 @@ def open_session(Session):
         session.rollback()
         raise
     finally:
+        pass
         # session.expunge_all()
-        session.close()
+        # session.close()
 
 
 def return_dict(func):
@@ -26,14 +28,29 @@ def return_dict(func):
     def inner_func(*args, **kwargs):
         result = func(*args, **kwargs)
         return_dicts = []
+        ts = Timestamp()
         if isinstance(result, list):
             for r in result:
-                return_dicts.append({c.key: getattr(r, c.key)
-                                     for c in inspect(r).mapper.column_attrs})
+                res = {c.key: getattr(r, c.key)
+                       for c in inspect(r).mapper.column_attrs}
+                ts.FromDatetime(dt=res['created_at'])
+                res['created_at'] = ts
+                if res['last_updated_at'] is not None:
+                    ts.FromDatetime(
+                        res['last_updated_at'])
+                    res['last_updated_at'] = ts
+                return_dicts.append(res)
             return return_dicts
         else:
-            return {c.key: getattr(result, c.key)
-                    for c in inspect(result).mapper.column_attrs}
+            res = {c.key: getattr(result, c.key)
+                   for c in inspect(result).mapper.column_attrs}
+            ts.FromDatetime(res['created_at'])
+            res['created_at'] = ts
+            if res['last_updated_at'] is not None:
+                ts.FromDatetime(
+                    res['last_updated_at'])
+                res['last_updated_at'] = ts
+            return res
     return inner_func
 
 
@@ -59,7 +76,7 @@ class QueryHelper():
         with open_session(self.Session) as session:
             todo = session.query(Todo).filter(Todo.id == id).one()
             todo.status = status
-            todo.last_updated_at = datetime.datetime.now()
+            todo.last_updated_at = datetime.now()
             session.commit()
             return todo
 
@@ -73,7 +90,7 @@ class QueryHelper():
     def create_todo(self, title):
         todo = Todo(title=title)
         with open_session(self.Session) as session:
-            todo.created_at = datetime.datetime.now()
+            todo.created_at = datetime.now()
             session.add(todo)
             session.commit()
             return todo

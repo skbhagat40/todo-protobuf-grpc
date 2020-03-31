@@ -1,8 +1,8 @@
-"""created table todos
+"""initalize table todos
 
-Revision ID: d8041628dc5d
+Revision ID: 640babce93f1
 Revises: 
-Create Date: 2020-03-30 22:33:42.486195
+Create Date: 2020-03-31 11:41:47.059615
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'd8041628dc5d'
+revision = '640babce93f1'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -22,6 +22,8 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('title', sa.String(), nullable=True),
     sa.Column('status', sa.Boolean(), nullable=True),
+    sa.Column('created_at', sa.TIMESTAMP(), nullable=True),
+    sa.Column('last_updated_at', sa.TIMESTAMP(), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
     # ### end Alembic commands ###

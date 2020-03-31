@@ -17,7 +17,6 @@ class TodoListServicer(todolist_pb2_grpc.TodoListServicer):
     def GetAllTodos(self, request, context):
         response = todolist_pb2.ListTodosResponse(
             todos=self.queryHelper.get_all_todos())
-        print('returning response', response)
         return response
 
     def CreateTodo(self, request, context):

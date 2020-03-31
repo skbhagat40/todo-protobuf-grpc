@@ -11,6 +11,7 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -18,34 +19,11 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=b'\n\x0etodolist.proto\"\x12\n\x10ListTodosRequest\"1\n\x04Todo\x12\n\n\x02id\x18\x01 \x01(\x05\x12\r\n\x05title\x18\x02 \x01(\t\x12\x0e\n\x06status\x18\x03 \x01(\x08\")\n\x11ListTodosResponse\x12\x14\n\x05todos\x18\x01 \x03(\x0b\x32\x05.Todo\"(\n\x11\x43reateTodoRequest\x12\x13\n\x04todo\x18\x01 \x01(\x0b\x32\x05.Todo\":\n\x12\x43reateTodoResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\x12\x13\n\x04todo\x18\x02 \x01(\x0b\x32\x05.Todo\",\n\x0f\x45\x64itTodoRequest\x12\n\n\x02id\x18\x01 \x01(\x05\x12\r\n\x05title\x18\x02 \x01(\t\"8\n\x10\x45\x64itTodoResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\x12\x13\n\x04todo\x18\x02 \x01(\x0b\x32\x05.Todo\"\x1f\n\x11\x44\x65leteTodoRequest\x12\n\n\x02id\x18\x01 \x01(\x05\"%\n\x12\x44\x65leteTodoResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\"5\n\x17UpdateTodoStatusRequest\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0e\n\x06status\x18\x02 \x01(\x08\"@\n\x18UpdateTodoStatusResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\x12\x13\n\x04todo\x18\x02 \x01(\x0b\x32\x05.Todo2\xa8\x02\n\x08TodoList\x12\x34\n\x0bGetAllTodos\x12\x11.ListTodosRequest\x1a\x12.ListTodosResponse\x12\x35\n\nCreateTodo\x12\x12.CreateTodoRequest\x1a\x13.CreateTodoResponse\x12/\n\x08\x45\x64itTodo\x12\x10.EditTodoRequest\x1a\x11.EditTodoResponse\x12\x35\n\nDeleteTodo\x12\x12.DeleteTodoRequest\x1a\x13.DeleteTodoResponse\x12G\n\x10UpdateTodoStatus\x12\x18.UpdateTodoStatusRequest\x1a\x19.UpdateTodoStatusResponseb\x06proto3'
-)
+  serialized_pb=b'\n\x0etodolist.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x96\x01\n\x04Todo\x12\n\n\x02id\x18\x01 \x01(\x05\x12\r\n\x05title\x18\x02 \x01(\t\x12\x0e\n\x06status\x18\x03 \x01(\x08\x12.\n\ncreated_at\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x33\n\x0flast_updated_at\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x12\n\x10ListTodosRequest\")\n\x11ListTodosResponse\x12\x14\n\x05todos\x18\x01 \x03(\x0b\x32\x05.Todo\"(\n\x11\x43reateTodoRequest\x12\x13\n\x04todo\x18\x01 \x01(\x0b\x32\x05.Todo\":\n\x12\x43reateTodoResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\x12\x13\n\x04todo\x18\x02 \x01(\x0b\x32\x05.Todo\",\n\x0f\x45\x64itTodoRequest\x12\n\n\x02id\x18\x01 \x01(\x05\x12\r\n\x05title\x18\x02 \x01(\t\"8\n\x10\x45\x64itTodoResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\x12\x13\n\x04todo\x18\x02 \x01(\x0b\x32\x05.Todo\"\x1f\n\x11\x44\x65leteTodoRequest\x12\n\n\x02id\x18\x01 \x01(\x05\"%\n\x12\x44\x65leteTodoResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\"5\n\x17UpdateTodoStatusRequest\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0e\n\x06status\x18\x02 \x01(\x08\"@\n\x18UpdateTodoStatusResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\x12\x13\n\x04todo\x18\x02 \x01(\x0b\x32\x05.Todo2\xa8\x02\n\x08TodoList\x12\x34\n\x0bGetAllTodos\x12\x11.ListTodosRequest\x1a\x12.ListTodosResponse\x12\x35\n\nCreateTodo\x12\x12.CreateTodoRequest\x1a\x13.CreateTodoResponse\x12/\n\x08\x45\x64itTodo\x12\x10.EditTodoRequest\x1a\x11.EditTodoResponse\x12\x35\n\nDeleteTodo\x12\x12.DeleteTodoRequest\x1a\x13.DeleteTodoResponse\x12G\n\x10UpdateTodoStatus\x12\x18.UpdateTodoStatusRequest\x1a\x19.UpdateTodoStatusResponseb\x06proto3'
+  ,
+  dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
 
-
-
-_LISTTODOSREQUEST = _descriptor.Descriptor(
-  name='ListTodosRequest',
-  full_name='ListTodosRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=18,
-  serialized_end=36,
-)
 
 
 _TODO = _descriptor.Descriptor(
@@ -76,6 +54,20 @@ _TODO = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='created_at', full_name='Todo.created_at', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='last_updated_at', full_name='Todo.last_updated_at', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -88,8 +80,32 @@ _TODO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=38,
-  serialized_end=87,
+  serialized_start=52,
+  serialized_end=202,
+)
+
+
+_LISTTODOSREQUEST = _descriptor.Descriptor(
+  name='ListTodosRequest',
+  full_name='ListTodosRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=204,
+  serialized_end=222,
 )
 
 
@@ -119,8 +135,8 @@ _LISTTODOSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=89,
-  serialized_end=130,
+  serialized_start=224,
+  serialized_end=265,
 )
 
 
@@ -150,8 +166,8 @@ _CREATETODOREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=132,
-  serialized_end=172,
+  serialized_start=267,
+  serialized_end=307,
 )
 
 
@@ -188,8 +204,8 @@ _CREATETODORESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=174,
-  serialized_end=232,
+  serialized_start=309,
+  serialized_end=367,
 )
 
 
@@ -226,8 +242,8 @@ _EDITTODOREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=234,
-  serialized_end=278,
+  serialized_start=369,
+  serialized_end=413,
 )
 
 
@@ -264,8 +280,8 @@ _EDITTODORESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=280,
-  serialized_end=336,
+  serialized_start=415,
+  serialized_end=471,
 )
 
 
@@ -295,8 +311,8 @@ _DELETETODOREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=338,
-  serialized_end=369,
+  serialized_start=473,
+  serialized_end=504,
 )
 
 
@@ -326,8 +342,8 @@ _DELETETODORESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=371,
-  serialized_end=408,
+  serialized_start=506,
+  serialized_end=543,
 )
 
 
@@ -364,8 +380,8 @@ _UPDATETODOSTATUSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=410,
-  serialized_end=463,
+  serialized_start=545,
+  serialized_end=598,
 )
 
 
@@ -402,17 +418,19 @@ _UPDATETODOSTATUSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=465,
-  serialized_end=529,
+  serialized_start=600,
+  serialized_end=664,
 )
 
+_TODO.fields_by_name['created_at'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TODO.fields_by_name['last_updated_at'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _LISTTODOSRESPONSE.fields_by_name['todos'].message_type = _TODO
 _CREATETODOREQUEST.fields_by_name['todo'].message_type = _TODO
 _CREATETODORESPONSE.fields_by_name['todo'].message_type = _TODO
 _EDITTODORESPONSE.fields_by_name['todo'].message_type = _TODO
 _UPDATETODOSTATUSRESPONSE.fields_by_name['todo'].message_type = _TODO
-DESCRIPTOR.message_types_by_name['ListTodosRequest'] = _LISTTODOSREQUEST
 DESCRIPTOR.message_types_by_name['Todo'] = _TODO
+DESCRIPTOR.message_types_by_name['ListTodosRequest'] = _LISTTODOSREQUEST
 DESCRIPTOR.message_types_by_name['ListTodosResponse'] = _LISTTODOSRESPONSE
 DESCRIPTOR.message_types_by_name['CreateTodoRequest'] = _CREATETODOREQUEST
 DESCRIPTOR.message_types_by_name['CreateTodoResponse'] = _CREATETODORESPONSE
@@ -424,19 +442,19 @@ DESCRIPTOR.message_types_by_name['UpdateTodoStatusRequest'] = _UPDATETODOSTATUSR
 DESCRIPTOR.message_types_by_name['UpdateTodoStatusResponse'] = _UPDATETODOSTATUSRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-ListTodosRequest = _reflection.GeneratedProtocolMessageType('ListTodosRequest', (_message.Message,), {
-  'DESCRIPTOR' : _LISTTODOSREQUEST,
-  '__module__' : 'todolist_pb2'
-  # @@protoc_insertion_point(class_scope:ListTodosRequest)
-  })
-_sym_db.RegisterMessage(ListTodosRequest)
-
 Todo = _reflection.GeneratedProtocolMessageType('Todo', (_message.Message,), {
   'DESCRIPTOR' : _TODO,
   '__module__' : 'todolist_pb2'
   # @@protoc_insertion_point(class_scope:Todo)
   })
 _sym_db.RegisterMessage(Todo)
+
+ListTodosRequest = _reflection.GeneratedProtocolMessageType('ListTodosRequest', (_message.Message,), {
+  'DESCRIPTOR' : _LISTTODOSREQUEST,
+  '__module__' : 'todolist_pb2'
+  # @@protoc_insertion_point(class_scope:ListTodosRequest)
+  })
+_sym_db.RegisterMessage(ListTodosRequest)
 
 ListTodosResponse = _reflection.GeneratedProtocolMessageType('ListTodosResponse', (_message.Message,), {
   'DESCRIPTOR' : _LISTTODOSRESPONSE,
@@ -509,8 +527,8 @@ _TODOLIST = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=532,
-  serialized_end=828,
+  serialized_start=667,
+  serialized_end=963,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetAllTodos',
