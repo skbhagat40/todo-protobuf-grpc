@@ -24,6 +24,14 @@ def open_session(Session):
 
 
 def change_datetime_to_timestamp(ts, res):
+    """ Converts the datetime attributes of 
+    todo object to Timestamp which can be
+    used by proto.
+
+    Arguments:
+        ts {[google.timestamp.Timestamp]} -- [google timestamp conversion utitliy]
+        res {dict} -- [todo object]
+    """
     ts.FromDatetime(dt=res['created_at'])
     res['created_at'] = ts
     if res['last_updated_at'] is not None:
