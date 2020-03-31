@@ -12,7 +12,7 @@ import sqlalchemy
 class TodoListServicer(todolist_pb2_grpc.TodoListServicer):
     def __init__(self):
         self.queryHelper = utils.QueryHelper(
-            create_engine(environment.DB_CONNECTION_STRING))
+            engine=create_engine(environment.DB_CONNECTION_STRING))
 
     def GetAllTodos(self, request, context):
         response = todolist_pb2.ListTodosResponse(
