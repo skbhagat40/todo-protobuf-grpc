@@ -23,6 +23,15 @@ def open_session(Session):
         # session.close()
 
 
+def change_datetime_to_timestamp(ts, res):
+    ts.FromDatetime(dt=res['created_at'])
+    res['created_at'] = ts
+    if res['last_updated_at'] is not None:
+        ts.FromDatetime(
+            res['last_updated_at'])
+        res['last_updated_at'] = ts
+
+
 def return_dict(func):
     # takes an sqlalchemy object instance and returns a dict.
     def inner_func(*args, **kwargs):
@@ -33,23 +42,13 @@ def return_dict(func):
             for r in result:
                 res = {c.key: getattr(r, c.key)
                        for c in inspect(r).mapper.column_attrs}
-                ts.FromDatetime(dt=res['created_at'])
-                res['created_at'] = ts
-                if res['last_updated_at'] is not None:
-                    ts.FromDatetime(
-                        res['last_updated_at'])
-                    res['last_updated_at'] = ts
+                change_datetime_to_timestamp(ts, res)
                 return_dicts.append(res)
             return return_dicts
         else:
             res = {c.key: getattr(result, c.key)
                    for c in inspect(result).mapper.column_attrs}
-            ts.FromDatetime(res['created_at'])
-            res['created_at'] = ts
-            if res['last_updated_at'] is not None:
-                ts.FromDatetime(
-                    res['last_updated_at'])
-                res['last_updated_at'] = ts
+            change_datetime_to_timestamp(ts, res)
             return res
     return inner_func
 
